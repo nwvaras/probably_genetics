@@ -5,15 +5,15 @@ services:
     build:
       context: .
       dockerfile: DockerfileDev
-    image: agendo-client/react-dev
-    container_name: agendo_client_react_dev
+    image: genetic-client/react-dev
+    container_name: genetic_client_react_dev
     ports:
       - ${DEV_PORT}:3000
   frontend:
     restart: on-failure
     build: .
-    image: agendo-client/react
-    container_name: agendo_client_react
+    image: genetic-client/react
+    container_name: genetic_client_react
     ports:
       - ${PROD_PORT}:3000
   nginx:
@@ -21,7 +21,7 @@ services:
     build:
       context: .
       dockerfile: DockerfileNginx
-    container_name: portas_front_nginx
+    container_name: genetic_front_nginx
     ports:
       - 80:80
     volumes:

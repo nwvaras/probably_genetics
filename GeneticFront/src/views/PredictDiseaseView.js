@@ -106,7 +106,7 @@ export default function PredictDiseaseView(props) {
             Classifier
           </div>
         </Grid>
-        <Grid item xs>
+        <Grid item xs={12} sm>
           <TextField
             className={classes.textField}
             fullWidth
@@ -117,7 +117,7 @@ export default function PredictDiseaseView(props) {
             onChange={onChange}
           />
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={12} sm={2}>
           <div className={classes.wrapper}>
             <Button
               fullWidth
