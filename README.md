@@ -43,7 +43,7 @@ Fill with data the already running backend instance:
     npm install
     docker-compose up -d --build frontend
     
-Open http://localhost:3000/
+Open http://localhost/
     
     
     

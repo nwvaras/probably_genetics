@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+MODELS = os.path.join(BASE_DIR, 'ml/ml_models')
 # Application definition
 
 INSTALLED_APPS = [
