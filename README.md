@@ -2,7 +2,7 @@
 
 ### Pre-Requisites
 
-Node 10, Docker, Docker-Compose
+Docker, Docker-Compose
 
 ### Installation (For Ubuntu)
 
@@ -39,11 +39,9 @@ Fill with data the already running backend instance:
     
 #### Run frontend
 
-Required Node v10 or later:
-
     cd GeneticFront
     npm install
-    npm start
+    docker-compose up -d --build frontend
     
 Open http://localhost:3000/
     
