@@ -91,7 +91,11 @@ class MLSymptomsApiView(SymptomsApiView):
         # Search for all disorders with all those terms (AND operator)
         hp_ids=[]
         for term in terms:
-            hp_ids.append(HPOToDisorder.objects.filter(term__icontains=term,disorder_id__in=disorders).values_list('id_hp',flat=True)[0])
+            d = HPOToDisorder.objects.filter(term__icontains=term, disorder_id__in=disorders).values_list('id_hp',flat=True)
+            if len(d) == 0:
+                continue
+            hp_ids.append(d[0])
+
         l=[0]*len(syntoms)
         for id in hp_ids:
             l[syn_dict[id]] = 1
