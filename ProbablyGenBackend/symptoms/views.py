@@ -10,8 +10,9 @@ from ml.models import HPOToDisorder, Disorder
 from symptoms.serializers import SymptomsQueryInputSerializer, DisorderSerializer, DisorderPercentSerializer
 from symptoms.terms_utils import MedicalTermProvider
 import pickle
-filename = 'randomforest_model.sav'
-model = pickle.load(open(filename, 'rb'))
+
+from symptoms.apps import SymptomsConfig
+
 
 # Test data
 
@@ -78,11 +79,11 @@ class MLSymptomsApiView(SymptomsApiView):
                                            context={'request': request})
         serializer.is_valid(raise_exception=True)
 
-        provider = MedicalTermProvider()
+
         query = serializer.validated_data.get('query')
 
         # Get medical terms queried
-        terms = provider.find_medical_terms(query)
+        terms = SymptomsConfig.provider.find_medical_terms(query)
 
         if len(terms) == 0:
             return Response({'terms': terms, 'results': []})
@@ -96,9 +97,7 @@ class MLSymptomsApiView(SymptomsApiView):
             l[syn_dict[id]] = 1
 
         # prediction_id = model.predict([l])
-        prediction = model.predict_proba([l])[0]
-        print('prediction')
-        print(prediction)
+        prediction = SymptomsConfig.classifier.predict_proba([l])[0]
         pred_disorders = list(Disorder.objects.filter(id__in=disorders))
         for i in range(0,len(prediction)):
             pred_disorders[i].percent = prediction[i]
