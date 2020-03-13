@@ -1,5 +1,30 @@
 ## Probably genetic
 
+####Disorders in Machine Learning Classifier
+
+Any Symptoms of this Disorders can be use with the Classifier search option!
+
+    Hereditary angioedema
+    Acquired angioedema
+    Ketamine-induced biliary dilatation
+    Thomsen and Becker disease
+    Proximal myotonic myopathy
+    Galactokinase deficiency
+    Myxoid/round cell liposarcoma
+    Pleomorphic liposarcoma
+    Well-differentiated liposarcoma
+    Familial cylindromatosis
+    Hereditary hyperferritinemia-cataract syndrome
+    Familial multiple trichoepithelioma
+    Bartter syndrome
+    Laryngeal abductor paralysis
+    Progressive nodular histiocytosis
+    Congenital pulmonary valve stenosis
+    Hyaluronidase deficiency
+    Larynx atresia
+    Congenital pulmonary veins atresia or stenosis
+    Congenital laryngomalacia
+
 ### Pre-Requisites
 
 Docker, Docker-Compose
@@ -85,6 +110,7 @@ Fill with data the already running backend instance:
     docker-compose up -d --build frontend
     
 Open http://localhost/
+    
     
     
     
