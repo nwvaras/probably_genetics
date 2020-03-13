@@ -1,0 +1,29 @@
+# docker-compose.yml
+version: '3'
+services:
+  frontend_dev:
+    build:
+      context: .
+      dockerfile: DockerfileDev
+    image: agendo-client/react-dev
+    container_name: agendo_client_react_dev
+    ports:
+      - ${DEV_PORT}:3000
+  frontend:
+    restart: on-failure
+    build: .
+    image: agendo-client/react
+    container_name: agendo_client_react
+    ports:
+      - ${PROD_PORT}:3000
+  nginx:
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: DockerfileNginx
+    container_name: portas_front_nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./certs:/etc/nginx/certs
+    network_mode: "host"

@@ -1,0 +1,14 @@
+.App {
+  back: center;
+}
+
+body {
+  background-color: #eeeeee;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
