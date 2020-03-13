@@ -149,4 +149,7 @@ STATIC_URL = '/static/'
 # CORS
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
+    "http://ec2-3-84-228-3.compute-1.amazonaws.com",
+    "http://ec2-3-84-228-3.compute-1.amazonaws.com:3000",
+    "http://localhost"
 ]
